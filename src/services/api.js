@@ -1,11 +1,16 @@
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { API_CONFIG } from '../types';
+// Importa ENV directamente desde tu archivo de configuración
+import { ENV } from '../config/ENV'; // Ajusta la ruta según donde esté tu ENV.js
+
+//import axios from 'axios';
+//import AsyncStorage from '@react-native-async-storage/async-storage';
+//import { API_CONFIG } from '../types';
 
 // Crear instancia de axios
 const api = axios.create({
-  baseURL: API_CONFIG.BASE_URL,
-  timeout: API_CONFIG.TIMEOUT,
+  baseURL: ENV.API_BASE_URL, // <--- USA ENV.API_BASE_URL AQUÍ
+  timeout: 15000,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -45,8 +50,9 @@ api.interceptors.response.use(
         const refreshToken = await AsyncStorage.getItem('auth_refresh_token');
         if (refreshToken) {
           // Intentar refrescar el token
-          const response = await axios.post(`${API_CONFIG.BASE_URL}/auth/refresh`, {
-            refreshToken
+          //const response = await axios.post(`${API_CONFIG.BASE_URL}/auth/refresh`, {
+          const response = await axios.post(`${ENV.API_BASE_URL}/auth/refresh`, {
+          refreshToken
           });
 
           const { token: newToken, refreshToken: newRefreshToken } = response.data;
