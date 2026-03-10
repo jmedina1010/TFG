@@ -2,6 +2,7 @@
 export const ENV = {
   // Configuración de la API
  // API_BASE_URL: 'http://192.168.18.54:3001/api/v1',
+ // API_BASE_URL: 'https://tfg-nhla.onrender.com/api/v1',
   API_BASE_URL: 'https://tfg-nhla.onrender.com/api/v1',
   
   // Configuración de la aplicación
