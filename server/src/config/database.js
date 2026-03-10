@@ -7,11 +7,14 @@ const dbConfig = {
   connection: {
     host: process.env.DB_HOST || 'localhost',
     port: parseInt(process.env.DB_PORT || '3306'),
-    user: process.env.DB_USER || 'spjt_user',
-    password: process.env.DB_PASSWORD || 'spjt_password',
-    database: process.env.DB_NAME || 'spjt_db',
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    ssl: {
+      rejectUnauthorized: false // <--- ESTO ES OBLIGATORIO PARA AIVEN
+    },
     charset: 'utf8mb4',
-    timezone: 'UTC',
+    // Quita la línea de timezone: 'UTC' si te sigue dando el warning que vimos antes
   },
   pool: {
     min: 2,
