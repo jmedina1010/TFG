@@ -53,7 +53,7 @@ app.use('/api/', limiter);
 
 // CORS
 app.use(cors({
-  origin: ['http://localhost:8081', 'http://localhost:8082', 'http://localhost:3002', 'http://192.168.100.9:19006'],
+  origin: '*', // Permite todos los Orígenes para la fase de pruebas/entrega
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
