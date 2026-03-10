@@ -1,7 +1,8 @@
 // Configuración del entorno de la aplicación SPJT
 export const ENV = {
   // Configuración de la API
- API_BASE_URL: 'http://192.168.18.54:3001/api/v1',
+ // API_BASE_URL: 'http://192.168.18.54:3001/api/v1',
+  API_BASE_URL: 'https://tfg-nhla.onrender.com/api/v1',
   
   // Configuración de la aplicación
   APP_NAME: 'SPJT - Sistema de Procesos Judiciales',
@@ -10,8 +11,10 @@ export const ENV = {
   SUPPORT_EMAIL: 'soporte@spjt.com',
   
   // Configuración del entorno
-  NODE_ENV: 'development',
-  DEBUG: true,
+  // NODE_ENV: 'development',
+  NODE_ENV: 'production',
+  //DEBUG: true,
+  DEBUG: false,
   
   // Configuración de la base de datos
   DB_HOST: 'localhost',
