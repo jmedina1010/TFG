@@ -5,9 +5,6 @@ process.on('uncaughtException', (err) => {
   console.error('UNCAUGHT EXCEPTION:', err && err.stack ? err.stack : err);
 });
 
-const app = express();
-app.set('trust proxy', 1); // <--- AÑADE ESTA LÍNEA
-
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -26,6 +23,7 @@ const routes = require('./routes');
 dotenv.config();
 
 const app = express();
+app.set('trust proxy', 1); // <--- AÑADE ESTA LÍNEA
 const PORT = process.env.PORT || 3001;
 
 // Configuración de seguridad
